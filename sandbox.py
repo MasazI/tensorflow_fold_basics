@@ -9,7 +9,10 @@ import tensorflow as tf
 sess = tf.InteractiveSession()
 import tensorflow_fold.public.blocks as td
 
+print("[Sandbox] start. ==========")
+
 # Map and Reduce
+print("Map Reduce Processing sample. ==========")
 print(td.Map(td.Scalar()))
 print((td.Map(td.Scalar()) >> td.Reduce(td.Function(tf.multiply))).eval(range(1,10)))
 
@@ -26,18 +29,20 @@ def random_example(fn):
     return data, result
 
 # indeterminant data length
+print("Indeterminant data sample. function() is sum ==========")
 print(random_example(sum))
 print(random_example(sum))
 print(random_example(sum))
 print(random_example(sum))
 # another function
-print(random_example(min))
+print("Indeterminant data sample. function() is min ==========")
 print(random_example(min))
 print(random_example(min))
 print(random_example(min))
 print(random_example(min))
 
 # train using simple fc network with indeterminant data
+print("Training sum_block using simple fc network with indeterminant data. ==========")
 def train(fn, batch_size=100):
     net_block = reduce_net_block()
     compiler = td.Compiler.create((net_block, td.Scalar()))
@@ -51,13 +56,17 @@ def train(fn, batch_size=100):
     for i in range(2000):
         sess.run(train, compiler.build_feed_dict(random_example(fn) for _ in range(batch_size)))
         if i % 100 == 0:
-            print(i, sess.run(loss, validation_fd))
+            print("step %d: loss %f" % (i, sess.run(loss, validation_fd)))
     return net_block
 
 # execute train
 sum_block = train(sum)
 
 # execute evaluation
+print("evaluate trained sum_block. ==========")
 print(sum_block.eval([1, 1]))
 print(sum_block.eval([1, 8]))
 print(sum_block.eval([1, 1000]))
+
+print("[Sandbox] finish. ==========")
+
