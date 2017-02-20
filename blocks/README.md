@@ -129,13 +129,13 @@ Fuctionブロックは、ニューラルネットワークのレイヤーと組�
 td.Layerは呼び出し可能なPythonオブジェクトで、そのレイヤーの、異なるインスタンス間で重みを共有する。
 
 以下の例、ffnet は2層のフィードフォーワードネットワークで、重みを共有している。
-
+```
 # fclayer defines the weights for a fully-connected layer with 1024 hidden units.
 fclayer = td.FC(1024)
 # Each call to Function(fclayer) creates a fully-connected layer,
 # all of which share the weights provided by the fclayer object.
 ffnet = td.Function(fclayer) >>  td.Function(fclayer) >> td.Function(fclayer)
-
+```
 オペレータ >> については、Blockを使った記述の説明を参照。
 
 
