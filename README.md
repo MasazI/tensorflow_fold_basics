@@ -30,6 +30,8 @@ tiny_mlp では tensorflow fold の plan という考え方を学ぶ。plan に�
 - blocks
 
 blocks を利用した処理。README には blocks 周りの概念をまとめた。
+
+
 ---
 
 Copyright (c) 2017 Masahiro Imai
