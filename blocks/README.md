@@ -248,7 +248,7 @@ lstm_cell.output.reads(by, out_state) # (output_vec, (next_cell_state, output_ve
 ```
 この定義は、説明するために提供されている。セルの本体は対応するTensorFlow操作をラップする関数ブロックのみに依存しているので、LSTMセルをシンプルなレイヤーで直接実装するほうが、td.Composition にするより効率的である。
 
-******Recursion and forward declarations（再帰と前方宣言）**
+**Recursion and forward declarations（再帰と前方宣言）**
 ツリー再帰型ニューラルネットワークを実装するには、再帰的ブロックの定義が必要である。
 ブロックの型は、最初にtd.ForwardDeclarationで宣言される。その後、ブロック自体は順方向の定義を使って、再帰の参照を定義される。
 td.ForwardDeclaration.resolve_to は再帰の定義を、順方向の宣言を使って縛ることができる。
