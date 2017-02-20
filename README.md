@@ -27,6 +27,9 @@ RNNは仕組み上、構造を保持することができない。 データが�
 tiny_mlp では tensorflow fold の plan という考え方を学ぶ。plan に関数を登録して、セッションで実行する。planには必要な関数を設定する。plan を runすると設定された関数を組み合わせて学習や推論を行う。
 
 
+- blocks
+
+blocks を利用した処理。README には blocks 周りの概念をまとめた。
 ---
 
 Copyright (c) 2017 Masahiro Imai
