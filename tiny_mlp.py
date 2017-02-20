@@ -78,7 +78,9 @@ def setup_plan(plan):
 def main(_):
     assert 0 < FLAGS.keep_prob <= 1, '--keep_prob must be in (0, 1]'
     # create_from_flags:
-    td.Plan.create_from_flags(setup_plan).run()
+    mlp_plan = td.Plan.create_from_flags(setup_plan)
+    print(mlp_plan)
+    mlp_plan.run()
 
 if __name__ == '__main__':
     tf.app.run()
