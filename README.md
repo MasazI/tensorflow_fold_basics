@@ -17,10 +17,14 @@ RNNは仕組み上、構造を保持することができない。 データが�
 
 - sandbox.py
 
+ここでは TensorFlow fold の 簡単な neuralnetwork block と compiler による neuralnetwork の実行、実行して得られる値を使った loss定義 と 最適化の適用方法を実行する。
+
+
 ## 練習
 
 - tiny_mlp.py
 
+tiny_mlp では tensorflow fold の plan とい考え方を学ぶ。plan に関数を登録して、セッションで実行する。 
 
 ---
 
